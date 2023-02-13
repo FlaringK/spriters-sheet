@@ -4,7 +4,7 @@ body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
 
   background-color: #f5f5f5;
-  background-image: url('/assets/mushrooms.png');
+  background-image: url('./assets/mushrooms.png');
 
   animation: bgMove 10s linear infinite;
 
@@ -19,7 +19,7 @@ body {
 /* Title */
 #title {
   background-color: #ef8080;
-  background-image: url('/assets/header.png');
+  background-image: url('./assets/header.png');
   animation: headMove 10s linear infinite;
 
   height: 80px;
