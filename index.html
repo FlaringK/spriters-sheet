@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="main">
+
+    <div id="intro">
+      <h1>Spriter's Exporter</h1>
+    </div>
+
+    <div id="upload">
+      <label for="uploader">Upload Sprite Sheet</label> <input type="file"
+       id="uploader" name="uploader"
+       accept="image/png, image/jpeg">
+    </div>
+
+    <div id="options">
+      <div class="opt"><label for="bgCol">Background Colour</label> <input type="color" name="bgCol" id="bgCol" value="#8a5a9d"></div>
+      <div class="opt"><label for="spriteCol">Sprite Backing Colour</label> <input type="color" name="spriteCol" id="spriteCol" value="#c386ff"></div>
+      <div class="opt"><label for="wordCol">Text Colour</label> <input type="color" name="wordCol" id="wordCol" value="#ffffff"></div>
+      <!-- <div class="opt"><label for="targetCol">Target Colour</label> <input type="color" name="targetCol" id="targetCol" value="#ff0000"></div> -->
+
+      <div class="opt">
+        <label for="layout">Sprite Sheet Layout</label> <select name="layout" id="layout">
+          <option value="sheet">Input Sprite Sheet</option>
+          <option value="compact">Compact (set width with compact layout)</option>
+        </select>
+      </div>
+
+      <div class="opt"><label for="compactLayout">Compact Layout Width </label> <input type="number" name="compactLayout" id="compactLayout" min="0" value="4"></div>
+
+      <div class="opt"><label>Output Sprite Size</label> <input type="number" name="spriteSizeX" id="spriteSizeX" value="64" min="0"> <input type="number" name="spriteSizeY" id="spriteSizeY" value="64" min="0"> </div>
+      <div class="opt"><label>Minimum Sprite Register Size</label> <input type="number" name="minSpriteSizeX" id="minSpriteSizeX" value="10" min="0"> <input type="number" name="minSpriteSizeY" id="minSpriteSizeY" value="10" min="0"> </div>
+
+      <div class="opt">
+        <label>Output sprite Position</label> 
+        <select name="positionX" id="positionX">
+          <option value="left">left</option>
+          <option value="middle" selected >middle</option>
+          <option value="right">right</option>
+        </select>
+        <select name="positionY" id="positionY">
+          <option value="top">top</option>
+          <option value="middle" selected >middle</option>
+          <option value="bottom">bottom</option>
+        </select>
+      </div>
+
+      <button onclick="getSprites()">Load Sprites</button>
+    </div>
+
+  </div>
+  
+  <canvas id="ogimg"></canvas>
+
+  <canvas id="spriteSheet"></canvas>
+
+  <img src="./ness.png" id="input">
+
+  <script src="./spriter.js"></script>
+
+  
+
+</body>
+</html>

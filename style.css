@@ -1,0 +1,9 @@
+canvas {
+  outline: solid red;
+  background-color: #eee;
+}
+
+body {
+  image-rendering: pixelated;
+  text-align: center;
+}
