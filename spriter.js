@@ -63,12 +63,25 @@ let getOptions = () => {
 
 // Preview Uploaded Image
 
-document.getElementById("uploader").onchange = evt => {
+let filePath = ""
+let loadImg = () => {
   const [file] = document.getElementById("uploader").files
   if (file) {
     document.getElementById("input").src = URL.createObjectURL(file)
+    filePath = file.name
   }
 }
+
+document.getElementById("uploader").onchange = evt => {
+  loadImg()
+
+  document.getElementById("input").style.display = "block"
+  outCanvas.style.display = "none"
+
+  document.getElementById("download").removeAttribute("href")
+}
+
+loadImg()
 
 // Draw Sprite sheet
 
@@ -82,6 +95,8 @@ let getSprites = () => {
 
   // Get Els
   const input = document.getElementById("input")
+  input.style.display = "block"
+  outCanvas.style.display = "none"
 
   // Set Canvas Size
   inCanvas.height = input.clientHeight 
@@ -264,6 +279,14 @@ let getSprites = () => {
     const [x, y] = [i % outCanvas.width, Math.floor(i / outCanvas.width)]
     if (pixelEqual(pixel, hexToRgb(opt.spriteCol))) outCtx.clearRect(x, y, 1, 1)
   }
+
+  // Hide input
+  input.style.display = "none"
+  outCanvas.style.display = "block"
+
+  // Set download
+  document.getElementById("download").download = "spritesheet_" + filePath
+  document.getElementById("download").href = outCanvas.toDataURL()
 
 }
 

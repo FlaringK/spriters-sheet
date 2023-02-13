@@ -1,9 +1,131 @@
-canvas {
-  outline: solid red;
-  background-color: #eee;
-}
-
 body {
   image-rendering: pixelated;
+  margin: 0;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+
+  background-color: #f5f5f5;
+  background-image: url('/assets/mushrooms.png');
+
+  animation: bgMove 10s linear infinite;
+
+  text-shadow: 1px 1px 1px #813939;
+  color: white;
+}
+
+@keyframes bgMove {
+  to { background-position: 134px 68px;}
+}
+
+/* Title */
+#title {
+  background-color: #ef8080;
+  background-image: url('/assets/header.png');
+  animation: headMove 10s linear infinite;
+
+  height: 80px;
+  box-sizing: border-box;
+
+  z-index: 5;
+
+  position: relative;
+
+  padding: 1em;
+}
+
+#title h1 {
+  margin: 0;
+}
+
+@keyframes headMove {
+  to { background-position: -80px 0;}
+}
+
+/* Main */
+
+#wrap {
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+}
+
+@media screen and (min-width: 1200px) {
+  #wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #wrap {
+    width: 100%;
+  }
+}
+
+#body {
+  background-color: #e0e0e0;
+  display: flex;
+}
+
+/* Side */
+
+#side {
+  width: 200px;
+  background-color: #d86363;
+
+  box-shadow: #0004 8px -5px 8px;
+  padding: 5px;
+}
+
+/* Options */
+
+#main {
+  flex-grow: 1;
+  padding-bottom: 20px;
+}
+
+#options {
+  margin: 10px 10px 20px 10px;
+  width: 75%;
+}
+
+.opt {
+  background-color: #ea8686;
+  min-height: 27px;
+  line-height: 27px;
+
+  padding: 0 5px 0 2px;
+}
+
+.opt:nth-child(even) {
+  background-color: #e27b7b;
+}
+
+.opt label {
+  display: inline-block;
+  width: 260px;
+}
+
+.opt input[type="color"] {
+  margin-top: -100%;
+  box-sizing: border-box;
+  height: 27px;
+}
+
+.end {
+  background-color: #d86363 !important;
+  font-weight: bold;
+}
+
+#fakenav {
+  background-color: #c94b4b;
+  height: 20px;
+  padding: 5px 2px;
   text-align: center;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+.create:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
